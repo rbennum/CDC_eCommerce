@@ -1,7 +1,5 @@
 import psycopg
 import random
-from collections import namedtuple
-from faker import Faker
 from .dbobjects import Product, Customer
 
 """

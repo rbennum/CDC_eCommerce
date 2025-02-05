@@ -52,3 +52,12 @@ def generate_table():
                 );
                 """)
             conn.commit()
+
+def drop_tables():
+    with psycopg.connect("host=localhost dbname=ecomm_db user=postgres password=postgres port=5432") as conn:
+        with conn.cursor() as cur:
+            cur.execute("DROP TABLE IF EXISTS order_items CASCADE")
+            cur.execute("DROP TABLE IF EXISTS orders CASCADE")
+            cur.execute("DROP TABLE IF EXISTS products CASCADE")
+            cur.execute("DROP TABLE IF EXISTS customers CASCADE")
+            conn.commit()
